@@ -21,7 +21,7 @@ public class WebPage {
 		this.anchor = anchor;
 	}
 	
-	private void loadDocumentFromWeb(){
+	public void loadDocumentFromWeb(){
 		try{
 			document = Jsoup.connect(anchor.getAnchorURL()).get();
 			Elements links = document.select("a");
@@ -32,4 +32,26 @@ public class WebPage {
 				Logger.getLogger(WebPage.class.getName()).log(Level.SEVERE, null, e);
 			}
 	}
+
+	public Anchor getAnchor() {
+		return anchor;
+	}
+
+	public String getWebPageHash() {
+		return webPageHash;
+	}
+
+	public int getAnchorParseStatus() {
+		return anchorParseStatus;
+	}
+
+	public int getEmailParseStatus() {
+		return emailParseStatus;
+	}
+
+	public Document getDocument() {
+		return document;
+	}
+	
+	
 }
